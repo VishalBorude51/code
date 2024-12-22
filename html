@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foodie Delights</title>
+    <style>
+        /* General Reset */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Full Page Background Image */
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2lzMTYwNjItaW1hZ2Uta3d2eWZrd3IuanBn.jpg');
+            /* Replace with your image URL */
+            background-size: cover;
+            /* Ensures the image covers the whole page */
+            background-position: center;
+            /* Centers the image */
+            background-attachment: fixed;
+            /* Makes the background fixed when scrolling */
+            background-repeat: no-repeat;
+            /* Prevents repeating the image */
+            height: 100vh;
+            /* Ensures the image takes up at least the full height of the viewport */
+            scroll-behavior: smooth;
+            /* Smooth scrolling */
+        }
+        /* Header Section */
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            color: white;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        /* Navigation Bar */
+        
+        nav {
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Semi-transparent background for nav */
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            color: black;
+            width: 120px;
+            height: auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 1.1em;
+        }
+        
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 2em;
+            color: white;
+            background-color: #444;
+            border: none;
+        }
+        /* Main Content */
+        
+        .content {
+            padding: 100px 20px 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .card {
+            background-color: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card h2 {
+            margin: 15px 0;
+            font-size: 1.5em;
+        }
+        
+        .card p {
+            font-size: 1em;
+            color: #777;
+            padding: 0 15px;
+            margin-bottom: 15px;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+        .card:hover img {
+            transform: scale(1.1);
+            /* Highlight image on hover */
+        }
+        /* Section Content */
+        
+        .section {
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .section p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto 20px;
+        }
+        
+        .highlighted {
+            color: #0077b6;
+            font-weight: bold;
+        }
+        /* Footer Section */
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 1em;
+        }
+        /* Media Queries for Mobile & Tablets */
+        
+        @media only screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 10px 0;
+                text-align: center;
+                font-size: 1.2em;
+            }
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+            .content {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+            .card {
+                width: 90%;
+                margin: 10px 0;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .card h2 {
+                font-size: 1.2em;
+            }
+            .card p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Foodie Delights</h1>
+        <p>Explore the best culinary experiences with us</p>
+    </header>
+
+    <nav>
+        <div class="logo">
+            <img src="https://e7.pngegg.com/pngimages/126/52/png-clipart-logo-brand-font-food-product-restaurant-logo-design-food-label-thumbnail.png" alt="description" width="100px" height="100px">
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div id="home" class="section">
+        <h2>Welcome to Foodie Delights</h2>
+        <p>At Foodie Delights, we offer a wide range of delicious dishes, each made with love and passion. Whether you’re craving something sweet or savory, we have something for every taste. Explore our menu and experience culinary excellence.</p>
+    </div>
+
+    <div id="menu" class="section">
+        <h2>Our Menu</h2>
+        <p>Discover our wide variety of dishes that will leave you coming back for more. Here are some of the food items we offer:</p>
+        <div class="content">
+            <div class="card">
+                <img src="https://www.example.com/pasta.jpg" alt="Pasta">
+                <h2>Italian Pasta</h2>
+                <p>Our signature Italian pasta, made with fresh ingredients and a rich, flavorful sauce that will tantalize your taste buds.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.example.com/pizza.jpg" alt="Pizza">
+                <h2>Deluxe Pizza</h2>
+                <p>Thin crust pizza topped with a variety of delicious ingredients, including fresh veggies, cheese, and meats of your choice.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.example.com/burger.jpg" alt="Burger">
+                <h2>Classic Burger</h2>
+                <p>A classic, juicy burger with fresh lettuce, tomatoes, pickles, and our special sauce. Perfect for any occasion.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="section">
+        <h2>About Us</h2>
+        <p>Foodie Delights was founded in 2015 with the goal of providing high-quality, delicious meals to food lovers around the world. Our team is dedicated to creating dishes that not only taste amazing but also bring people together to enjoy great food.</p>
+    </div>
+
+    <div id="gallery" class="section">
+        <h2>Food Gallery</h2>
+        <p>Take a look at some of our most delicious dishes. These mouth-watering pictures showcase the variety and quality of food we offer:</p>
+        <div class="content">
+            <div class="card">
+                <img src="https://www.example.com/dessert.jpg" alt="Dessert">
+                <h2>Sweet Desserts</h2>
+                <p>From chocolate cakes to fruit tarts, our desserts are the perfect way to end a meal.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.example.com/salad.jpg" alt="Salad">
+                <h2>Fresh Salads</h2>
+                <p>Our fresh salads are made with the finest seasonal ingredients and are perfect for any light meal.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to make a reservation, feel free to get in touch with us:</p>
+        <p>Email: <a href="mailto:contact@foodiedelights.com">contact@foodiedelights.com</a></p>
+        <p>Phone: (123) 456-7890</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Foodie Delights. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle mobile navigation menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>
